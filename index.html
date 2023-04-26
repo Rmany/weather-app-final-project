@@ -22,34 +22,38 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>London</h1>
+      <div class="weather-app">
+        <div class="row">
+          <div class="col">
+            <h1>London</h1>
+          </div>
+          <div class="col">
+            <ul>
+              <li class="date">26th April 2023</li>
+              <li class="time">Wednesday 21:22</li>
+            </ul>
+          </div>
         </div>
-        <div class="col">
-          <ul>
-            <li>26th April 2023</li>
-            <li>Wednesday 21:22</li>
-          </ul>
+        <div class="row">
+          <div class="col">
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+              alt="Clear Night Sky"
+              class="weather-icon"
+            />
+            <span class="main-temp">10</span
+            ><span class="units"><a href="#">°C</a> | <a href="#">°F</a></span>
+          </div>
+          <div class="col more-info">
+            <ul>
+              <li>Real feel: 8°C</li>
+              <li>Wind Speed: 2 km/h</li>
+              <li>Humidity: 48%</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
-            alt="Clear Night Sky"
-          />
-          <span>10 °C | °F</span>
-        </div>
-        <div class="col">
-          <ul>
-            <li>Real feel: 8°C</li>
-            <li>Wind Speed: 2 km/h</li>
-            <li>Humidity: 48%</li>
-          </ul>
-        </div>
-      </div>
-      <p>
+      <p class="reference">
         <a
           href="https://github.com/Rmany/weather-app-final-project"
           target="_blank"
