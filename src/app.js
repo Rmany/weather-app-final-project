@@ -61,11 +61,14 @@ function updateData(input) {
   time.innerHTML = formatTime(input.data.time * 1000);
   let date = document.querySelector("#date");
   date.innerHTML = formatDate(input.data.time * 1000);
+  let icon = document.querySelector("#weatherIcon");
+
+  icon.setAttribute("src", input.data.condition.icon_url);
 }
 
 let apiKey = "9ae090e1584act3b4ed90adf0ce9o7fa";
 let units = "metric";
-let city = "lusaka";
+let city = "Bergen";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(updateData);
