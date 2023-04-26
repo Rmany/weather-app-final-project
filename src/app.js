@@ -57,6 +57,8 @@ function updateData(input) {
   windSpeed.innerHTML = Math.round(input.data.wind.speed);
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = input.data.temperature.humidity;
+  let description = document.querySelector("#description");
+  description.innerHTML = input.data.condition.description;
   let time = document.querySelector("#time");
   time.innerHTML = formatTime(input.data.time * 1000);
   let date = document.querySelector("#date");

@@ -25,6 +25,12 @@ li {
   max-width: 700px;
 }
 
+.description {
+  padding: 5px 20px;
+
+  text-transform: capitalize;
+}
+
 .main-temp {
   font-size: 60px;
   position: relative;
@@ -44,6 +50,8 @@ li {
 
 .date {
   font-weight: 600;
+  margin: 15px 0px;
+  list-style: 50px;
 }
 .reference {
   text-align: center;
