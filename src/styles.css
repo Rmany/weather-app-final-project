@@ -4,10 +4,11 @@ body {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 50px;
   padding: 0px 20px;
+  margin: 0px;
 }
 
 li {
@@ -37,7 +38,7 @@ li {
 }
 
 .more-info {
-  padding: 20px;
+  padding: 20px 5px;
   margin: 10px 0px;
 }
 
