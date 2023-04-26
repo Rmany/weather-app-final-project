@@ -25,7 +25,7 @@
       <div class="weather-app">
         <div class="row">
           <div class="col">
-            <h1>London</h1>
+            <h1 id="location"></h1>
           </div>
           <div class="col">
             <ul>
@@ -41,14 +41,20 @@
               alt="Clear Night Sky"
               class="weather-icon"
             />
-            <span class="main-temp">10</span
+            <span class="main-temp" id="mainTemp"></span
             ><span class="units"><a href="#">°C</a> | <a href="#">°F</a></span>
           </div>
           <div class="col more-info">
             <ul>
-              <li>Real feel: 8°C</li>
-              <li>Wind Speed: 2 km/h</li>
-              <li>Humidity: 48%</li>
+              <li class="real-feel">
+                Real feel: <span id="realFeel">8</span>°C
+              </li>
+              <li class="wind-speed">
+                Wind Speed:
+                <span id="windSpeed">2</span>
+                km/h
+              </li>
+              <li class="humidity">Humidity: <span id="humidity">48</span>%</li>
             </ul>
           </div>
         </div>
