@@ -23,17 +23,24 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <div class="row">
-          <div class="col">
-            <div class="form-floating mb-3">
+        <form>
+          <div class="row">
+            <div class="col-9">
               <input
                 type="search"
                 name="locationSearch"
                 id="locationInput"
                 class="form-control"
+                placeholder="Enter a location"
               />
-              <label for="locationInput">Enter a location</label>
             </div>
+            <div class="col-3">
+              <input type="submit" value="Search" />
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col">
             <h1 id="location"></h1>
             <div class="description" id="description"></div>
           </div>
@@ -44,6 +51,7 @@
             </ul>
           </div>
         </div>
+
         <div class="row">
           <div class="col">
             <img

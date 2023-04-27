@@ -46,7 +46,6 @@ function formatDate(timestamp) {
 }
 
 function updateData(input) {
-  console.log(input.data);
   let temperature = document.querySelector("#mainTemp");
   temperature.innerHTML = Math.round(input.data.temperature.current);
   let location = document.querySelector("#location");
@@ -68,9 +67,17 @@ function updateData(input) {
   icon.setAttribute("src", input.data.condition.icon_url);
 }
 
+function showLocationWeather(event) {
+  event.preventDefault();
+  let input = document.querySelector("#locationInput");
+  console.log(input.value);
+}
 let apiKey = "9ae090e1584act3b4ed90adf0ce9o7fa";
 let units = "metric";
-let city = "Bergen";
+let city = "bergen";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(updateData);
+
+let locationSearch = document.querySelector("form");
+locationSearch.addEventListener("submit", showLocationWeather);
