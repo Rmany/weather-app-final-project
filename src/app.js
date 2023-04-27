@@ -47,11 +47,13 @@ function formatDate(timestamp) {
 
 function updateData(input) {
   let temperature = document.querySelector("#mainTemp");
-  temperature.innerHTML = Math.round(input.data.temperature.current);
+  celsiusTemp = input.data.temperature.current;
+  temperature.innerHTML = Math.round(celsiusTemp);
   let location = document.querySelector("#location");
   location.innerHTML = input.data.city;
   let realFeel = document.querySelector("#realFeel");
-  realFeel.innerHTML = Math.round(input.data.temperature.feels_like);
+  celsiusRealFeel = input.data.temperature.feels_like;
+  realFeel.innerHTML = `${Math.round(celsiusRealFeel)}°C`;
   let windSpeed = document.querySelector("#windSpeed");
   windSpeed.innerHTML = Math.round(input.data.wind.speed);
   let humidity = document.querySelector("#humidity");
@@ -70,14 +72,41 @@ function updateData(input) {
 function showLocationWeather(event) {
   event.preventDefault();
   let input = document.querySelector("#locationInput");
-  console.log(input.value);
-}
-let apiKey = "9ae090e1584act3b4ed90adf0ce9o7fa";
-let units = "metric";
-let city = "bergen";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+  let city = input.value;
 
-axios.get(apiUrl).then(updateData);
+  let apiKey = "9ae090e1584act3b4ed90adf0ce9o7fa";
+  let units = "metric";
+
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(updateData);
+}
+
+function changeUnitsFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#mainTemp");
+  temperature.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+  let realTemp = document.querySelector("#realFeel");
+  let realFeelFahrenheit = Math.round((celsiusRealFeel * 9) / 5 + 32);
+  realTemp.innerHTML = `${realFeelFahrenheit}°F`;
+}
+function changeUnitsCelsius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#mainTemp");
+  temperature.innerHTML = Math.round(celsiusTemp);
+  let realTemp = document.querySelector("#realFeel");
+  let realFeelCelsius = Math.round(celsiusRealFeel);
+  realTemp.innerHTML = `${realFeelCelsius}°C`;
+}
+
+let celsiusTemp = null;
+let celsiusRealFeel = null;
 
 let locationSearch = document.querySelector("form");
 locationSearch.addEventListener("submit", showLocationWeather);
+
+let tempFahrenheit = document.querySelector("#fahrenheit");
+tempFahrenheit.addEventListener("click", changeUnitsFahrenheit);
+
+let tempCelsius = document.querySelector("#celsius");
+tempCelsius.addEventListener("click", changeUnitsCelsius);
