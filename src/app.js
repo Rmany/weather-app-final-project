@@ -84,6 +84,8 @@ function showLocationWeather(event) {
 
 function changeUnitsFahrenheit(event) {
   event.preventDefault();
+  tempCelsius.classList.remove("active");
+  tempFahrenheit.classList.add("active");
   let temperature = document.querySelector("#mainTemp");
   temperature.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
   let realTemp = document.querySelector("#realFeel");
@@ -92,6 +94,8 @@ function changeUnitsFahrenheit(event) {
 }
 function changeUnitsCelsius(event) {
   event.preventDefault();
+  tempCelsius.classList.add("active");
+  tempFahrenheit.classList.remove("active");
   let temperature = document.querySelector("#mainTemp");
   temperature.innerHTML = Math.round(celsiusTemp);
   let realTemp = document.querySelector("#realFeel");

@@ -57,3 +57,8 @@ li {
   text-align: center;
   font-size: 10px;
 }
+a.active {
+  color: #000;
+  text-decoration: none;
+  cursor: default;
+}
