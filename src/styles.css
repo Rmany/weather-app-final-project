@@ -7,7 +7,7 @@ h1 {
   font-size: 30px;
   font-weight: 700;
   line-height: 50px;
-  padding: 0px 20px;
+  padding: 10px 20px 0px 0px;
   margin: 0px;
 }
 
@@ -19,14 +19,15 @@ li {
 
 .weather-app {
   margin: 20px auto 10px;
-  border: solid black;
+  border: solid #fff;
   border-radius: 10px;
   padding: 20px;
   max-width: 700px;
+  box-shadow: 32px 33px 23px -16px rgba(0, 0, 0, 0.25);
 }
 
 .description {
-  padding: 5px 20px;
+  padding: 0px;
 
   text-transform: capitalize;
 }
@@ -50,7 +51,8 @@ li {
 
 .date {
   font-weight: 600;
-  margin: 15px 0px;
+  margin-top: 25px;
+  margin-bottom: 10px;
   list-style: 50px;
 }
 .reference {
