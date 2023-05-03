@@ -1,6 +1,7 @@
 body {
   font-family: "Rubik", sans-serif;
   font-family: "Space Grotesk", sans-serif;
+  background-image: url(src/images/cold.png);
 }
 
 h1 {
@@ -27,7 +28,7 @@ li {
 }
 
 .description {
-  padding: 0px;
+  padding: 15px 0px;
 
   text-transform: capitalize;
 }
@@ -64,6 +65,10 @@ li {
   text-align: center;
   font-weight: 500;
   font-size: 14px;
+}
+
+.last-updated {
+  font-size: 10px;
 }
 
 .weather-forecast img {
