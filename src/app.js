@@ -53,12 +53,14 @@ function findDay(timestamp) {
 }
 
 function displayForecast(input) {
-  console.log(input.data.daily);
   let forecast = input.data.daily;
   let forecastElement = document.querySelector("#forecast");
+
   let forecastData = `<div class="row">`;
   forecast.forEach((day, index) => {
     if (index < 6) {
+      celsiusForecastHigh = day.temperature.maximum;
+      celsiusForecastLow = day.temperature.minimum;
       forecastData =
         forecastData +
         `<div class="col-2">
@@ -68,12 +70,8 @@ function displayForecast(input) {
                 alt=""
                 width="60px"
               />
-              <div class="daily-high">${Math.round(
-                day.temperature.maximum
-              )}°C</div
-              ><div class="daily-low"> ${Math.round(
-                day.temperature.minimum
-              )}°C</div>
+              <div class="daily-high">${Math.round(celsiusForecastHigh)}°C</div
+              ><div class="daily-low"> ${Math.round(celsiusForecastLow)}°C</div>
             </div>`;
     }
   });
@@ -126,35 +124,5 @@ function showLocationWeather(event) {
   axios.get(apiUrl).then(updateData);
 }
 
-function changeUnitsFahrenheit(event) {
-  event.preventDefault();
-  tempCelsius.classList.remove("active");
-  tempFahrenheit.classList.add("active");
-  let temperature = document.querySelector("#mainTemp");
-  temperature.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
-  let realTemp = document.querySelector("#realFeel");
-  let realFeelFahrenheit = Math.round((celsiusRealFeel * 9) / 5 + 32);
-  realTemp.innerHTML = `${realFeelFahrenheit}°F`;
-}
-function changeUnitsCelsius(event) {
-  event.preventDefault();
-  tempCelsius.classList.add("active");
-  tempFahrenheit.classList.remove("active");
-  let temperature = document.querySelector("#mainTemp");
-  temperature.innerHTML = Math.round(celsiusTemp);
-  let realTemp = document.querySelector("#realFeel");
-  let realFeelCelsius = Math.round(celsiusRealFeel);
-  realTemp.innerHTML = `${realFeelCelsius}°C`;
-}
-
-let celsiusTemp = null;
-let celsiusRealFeel = null;
-
 let locationSearch = document.querySelector("form");
 locationSearch.addEventListener("submit", showLocationWeather);
-
-let tempFahrenheit = document.querySelector("#fahrenheit");
-tempFahrenheit.addEventListener("click", changeUnitsFahrenheit);
-
-let tempCelsius = document.querySelector("#celsius");
-tempCelsius.addEventListener("click", changeUnitsCelsius);
