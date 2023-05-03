@@ -82,6 +82,27 @@ function showLocationWeather(event) {
   axios.get(apiUrl).then(updateData);
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastData = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach((day) => {
+    forecastData =
+      forecastData +
+      `<div class="col-2">
+              ${day}
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                alt=""
+                width="60px"
+              />
+              <span class="daily-high">9°C</span
+              ><span class="daily-low"> 4°C</span>
+            </div>`;
+  });
+  forecast.innerHTML = forecastData + `</div>`;
+}
+
 function changeUnitsFahrenheit(event) {
   event.preventDefault();
   tempCelsius.classList.remove("active");
@@ -114,3 +135,5 @@ tempFahrenheit.addEventListener("click", changeUnitsFahrenheit);
 
 let tempCelsius = document.querySelector("#celsius");
 tempCelsius.addEventListener("click", changeUnitsCelsius);
+
+displayForecast();
