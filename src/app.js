@@ -68,12 +68,12 @@ function displayForecast(input) {
                 alt=""
                 width="60px"
               />
-              <span class="daily-high">${Math.round(
+              <div class="daily-high">${Math.round(
                 day.temperature.maximum
-              )}°C</span
-              ><span class="daily-low">${Math.round(
+              )}°C</div
+              ><div class="daily-low"> ${Math.round(
                 day.temperature.minimum
-              )}°C</span>
+              )}°C</div>
             </div>`;
     }
   });

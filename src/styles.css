@@ -18,7 +18,7 @@ li {
 }
 
 .weather-app {
-  margin: 20px auto 10px;
+  margin: 40px auto 10px;
   border: solid #fff;
   border-radius: 10px;
   padding: 20px;
@@ -63,9 +63,10 @@ li {
 .weather-forecast {
   text-align: center;
   font-weight: 500;
+  font-size: 14px;
 }
 
-img.weather-forecast {
+.weather-forecast img {
   display: block;
   margin: 0 auto;
 }
