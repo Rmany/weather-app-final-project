@@ -107,22 +107,35 @@ function updateData(input) {
   date.innerHTML = formatDate(input.data.time * 1000);
   let icon = document.querySelector("#weatherIcon");
   let background = document.querySelector("#background");
-  let button = document.querySelector("#search-button");
+  let searchButton = document.querySelector("#search-button");
+  let locationButton = document.querySelector("#location-button");
   if (celsiusTemp < 10) {
     background.className = "";
     background.classList.add("cold");
-    button.className = "";
-    button.classList.add("btn");
-    button.classList.add("btn-outline-info");
+    searchButton.className = "";
+    searchButton.classList.add("btn");
+    searchButton.classList.add("btn-outline-info");
+    locationButton.className = "";
+    locationButton.classList.add("btn");
+    locationButton.classList.add("btn-info");
   } else if (celsiusTemp > 25) {
     background.className = "";
     background.classList.add("hot");
-    button.className = "";
-    button.classList.add("btn");
-    button.classList.add("btn-outline-warning");
+    searchButton.className = "";
+    searchButton.classList.add("btn");
+    searchButton.classList.add("btn-outline-warning");
+    locationButton.className = "";
+    locationButton.classList.add("btn");
+    locationButton.classList.add("btn-warning");
   } else {
     background.className = "";
     background.classList.add("warm");
+    searchButton.className = "";
+    searchButton.classList.add("btn");
+    searchButton.classList.add("btn-outline-success");
+    locationButton.className = "";
+    locationButton.classList.add("btn");
+    locationButton.classList.add("btn-success");
   }
 
   icon.setAttribute("src", input.data.condition.icon_url);
@@ -142,5 +155,23 @@ function showLocationWeather(event) {
   axios.get(apiUrl).then(updateData);
 }
 
+function searchCurrentLocationWeather(position) {
+  let apiKey = "9ae090e1584act3b4ed90adf0ce9o7fa";
+  let units = "metric";
+  let long = position.coords.longitude;
+  let lat = position.coords.latitude;
+
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(updateData);
+}
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(searchCurrentLocationWeather);
+}
+
 let locationSearch = document.querySelector("form");
 locationSearch.addEventListener("submit", showLocationWeather);
+
+let locationButton = document.querySelector("#location-button");
+locationButton.addEventListener("click", getLocation);
