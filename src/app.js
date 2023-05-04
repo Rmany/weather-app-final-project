@@ -121,7 +121,6 @@ function getForecast(location) {
 }
 
 function updateData(input) {
-  console.log(input);
   let temperature = document.querySelector("#mainTemp");
   let location = document.querySelector("#location");
   let realFeel = document.querySelector("#realFeel");
