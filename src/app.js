@@ -106,6 +106,24 @@ function updateData(input) {
   let date = document.querySelector("#date");
   date.innerHTML = formatDate(input.data.time * 1000);
   let icon = document.querySelector("#weatherIcon");
+  let background = document.querySelector("#background");
+  let button = document.querySelector("#search-button");
+  if (celsiusTemp < 10) {
+    background.className = "";
+    background.classList.add("cold");
+    button.className = "";
+    button.classList.add("btn");
+    button.classList.add("btn-outline-info");
+  } else if (celsiusTemp > 25) {
+    background.className = "";
+    background.classList.add("hot");
+    button.className = "";
+    button.classList.add("btn");
+    button.classList.add("btn-outline-warning");
+  } else {
+    background.className = "";
+    background.classList.add("warm");
+  }
 
   icon.setAttribute("src", input.data.condition.icon_url);
   getForecast(input.data.city);

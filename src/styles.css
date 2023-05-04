@@ -1,7 +1,6 @@
 body {
   font-family: "Rubik", sans-serif;
   font-family: "Space Grotesk", sans-serif;
-  background-image: url(src/images/cold.png);
 }
 
 h1 {
@@ -20,7 +19,8 @@ li {
 
 .weather-app {
   margin: 40px auto 10px;
-  border: solid #fff;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
   border-radius: 10px;
   padding: 20px;
   max-width: 700px;
@@ -75,10 +75,23 @@ li {
   display: block;
   margin: 0 auto;
 }
+
 a.active {
   color: #000;
   text-decoration: none;
   cursor: default;
+}
+
+body.cold {
+  background-image: url("images/cold.png");
+}
+
+body.warm {
+  background-image: url("images/warm.png");
+}
+
+body.hot {
+  background-image: url("images/hot.png");
 }
 
 .weather-forecast .daily-low {
